@@ -1,0 +1,9 @@
+export const DAMPING = 0.03;
+export const DRAG = 1 - DAMPING;
+export const restDistance = 25;
+export const xSegs = 10;
+export const ySegs = 10;
+export const wind = true;
+export const windStrength = 2;
+export const TIMESTEP = 18 / 1000;
+export const TIMESTEP_SQ = TIMESTEP * TIMESTEP;
