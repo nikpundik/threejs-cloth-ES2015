@@ -12,3 +12,6 @@ npm start
 ```
 
 
+![Alt text](/screenshots/flagwind.jpg?raw=true "Threejs cloth flag wind")
+
+
