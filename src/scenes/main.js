@@ -7,7 +7,6 @@ import {
 } from 'three';
 
 export default class MainScene {
-
   constructor() {
     this.scene = new Scene();
 
@@ -20,7 +19,10 @@ export default class MainScene {
 
   camera() {
     this.camera = new PerspectiveCamera(
-      30, window.innerWidth / window.innerHeight, 1, 10000
+      30,
+      window.innerWidth / window.innerHeight,
+      1,
+      10000
     );
     this.camera.position.x = 1000;
     this.camera.position.y = 50;
@@ -29,9 +31,9 @@ export default class MainScene {
   }
 
   lights() {
-    this.scene.add(new AmbientLight(0x111111));
+    // this.scene.add(new AmbientLight(0x111111));
 
-    this.light = new DirectionalLight(0x555555, 0.75);
+    this.light = new DirectionalLight(0x555555, 0.15);
     this.light.position.set(50, 200, 100);
     this.light.position.multiplyScalar(1.3);
 
@@ -42,10 +44,10 @@ export default class MainScene {
 
     const d = 300;
 
-    this.light.shadow.camera.left = - d;
+    this.light.shadow.camera.left = -d;
     this.light.shadow.camera.right = d;
     this.light.shadow.camera.top = d;
-    this.light.shadow.camera.bottom = - d;
+    this.light.shadow.camera.bottom = -d;
 
     this.light.shadow.camera.far = 1000;
 
@@ -71,16 +73,19 @@ export default class MainScene {
   }
 
   listeners() {
-    window.addEventListener('resize', () => {
-      this.camera.aspect = window.innerWidth / window.innerHeight;
-      this.camera.updateProjectionMatrix();
-      this.renderer.setSize(window.innerWidth, window.innerHeight);
-    }, false);
+    window.addEventListener(
+      'resize',
+      () => {
+        this.camera.aspect = window.innerWidth / window.innerHeight;
+        this.camera.updateProjectionMatrix();
+        this.renderer.setSize(window.innerWidth, window.innerHeight);
+      },
+      false
+    );
   }
 
   render() {
     this.camera.lookAt(this.scene.position);
     this.renderer.render(this.scene, this.camera);
   }
-
 }

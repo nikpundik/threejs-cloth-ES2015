@@ -1,11 +1,10 @@
 import { Vector3 } from 'three';
 
 export default class Particle {
-
   constructor(x, y, z, mass, drag, clothFunction) {
-    this.position = clothFunction(x, y);
-    this.previous = clothFunction(x, y);
-    this.original = clothFunction(x, y);
+    this.position = clothFunction(x, y, new Vector3());
+    this.previous = clothFunction(x, y, new Vector3());
+    this.original = clothFunction(x, y, new Vector3());
     this.a = new Vector3(0, 0, 0);
     this.mass = mass;
     this.invMass = 1 / mass;
@@ -30,5 +29,4 @@ export default class Particle {
 
     this.a.set(0, 0, 0);
   }
-
 }
